@@ -778,7 +778,7 @@ var Catalog = (function CatalogClosure() {
       if (absoluteUrl) {
         resultObj.url = absoluteUrl.href;
       }
-      resultObj.unsafeUrl = url;
+      resultObj.url = resultObj.unsafeUrl = url;
     }
     if (dest) {
       if (isName(dest)) {

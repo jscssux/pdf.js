@@ -16,7 +16,8 @@
 
 'use strict';
 
-let DEFAULT_URL = 'compressed.tracemonkey-pldi-09.pdf';
+// let DEFAULT_URL = 'compressed.tracemonkey-pldi-09.pdf#search=generation';
+let DEFAULT_URL = '';
 
 if (typeof PDFJSDev !== 'undefined' && PDFJSDev.test('CHROME')) {
   (function rewriteUrlClosure() {
@@ -96,6 +97,7 @@ function getViewerConfiguration() {
       cursorSelectToolButton: document.getElementById('cursorSelectTool'),
       cursorHandToolButton: document.getElementById('cursorHandTool'),
       documentPropertiesButton: document.getElementById('documentProperties'),
+      keyboardShortcutsButton: document.getElementById('keyboardShortcuts'),
     },
     fullscreen: {
       contextFirstPage: document.getElementById('contextFirstPage'),
@@ -156,6 +158,11 @@ function getViewerConfiguration() {
         'pageCount': document.getElementById('pageCountField'),
       },
     },
+    keyboardShortcuts: {
+      overlayName: 'keyboardShortcutsOverlay',
+      container: document.getElementById('keyboardShortcutsOverlay'),
+      closeButton: document.getElementById('keyboardShortcutsClose'),
+    },
     errorWrapper: {
       container: document.getElementById('errorWrapper'),
       errorMessage: document.getElementById('errorMessage'),
@@ -194,3 +201,4 @@ if (document.readyState === 'interactive' ||
 } else {
   document.addEventListener('DOMContentLoaded', webViewerLoad, true);
 }
+exports.pdfjsWebApp = pdfjsWebApp;

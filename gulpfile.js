@@ -272,9 +272,10 @@ function createBundle(defines) {
 
 function createWebBundle(defines) {
   var viewerOutputName = 'viewer.js';
-
+  var viewerLibraryName = 'pdfJsViewer';
   var viewerFileConfig = createWebpackConfig(defines, {
     filename: viewerOutputName,
+    library: viewerLibraryName,
   });
   return gulp.src('./web/viewer.js')
              .pipe(webpack2Stream(viewerFileConfig));

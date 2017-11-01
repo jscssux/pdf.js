@@ -286,7 +286,8 @@ class LinkAnnotationElement extends AnnotationElement {
     let link = document.createElement('a');
     addLinkAttributes(link, {
       url: this.data.url,
-      target: (this.data.newWindow ? LinkTarget.BLANK : undefined),
+      target: this.data.url ? (this.data.newWindow ? undefined : LinkTarget.
+        SELF) : LinkTarget.SELF,
     });
 
     if (!this.data.url) {

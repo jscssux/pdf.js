@@ -103,6 +103,8 @@ let PDFViewerApplication = {
   pdfPresentationMode: null,
   /** @type {PDFDocumentProperties} */
   pdfDocumentProperties: null,
+  /** @type {PDFKeyboardShortcuts} */
+  pdfKeyboardShortcuts: null,
   /** @type {PDFLinkService} */
   pdfLinkService: null,
   /** @type {PDFHistory} */
@@ -372,6 +374,9 @@ let PDFViewerApplication = {
       this.pdfDocumentProperties =
         new PDFDocumentProperties(appConfig.documentProperties,
                                   this.overlayManager, this.l10n);
+      this.pdfKeyboardShortcuts =
+        new PDFDocumentProperties(appConfig.keyboardShortcuts,
+        this.overlayManager, this.l10n);
 
       this.pdfCursorTools = new PDFCursorTools({
         container,
@@ -1294,6 +1299,7 @@ let PDFViewerApplication = {
     eventBus.on('rotatecw', webViewerRotateCw);
     eventBus.on('rotateccw', webViewerRotateCcw);
     eventBus.on('documentproperties', webViewerDocumentProperties);
+    eventBus.on('keyboardshortcuts', webViewerKeyboardShortcuts);
     eventBus.on('find', webViewerFind);
     eventBus.on('findfromurlhash', webViewerFindFromUrlHash);
     if (typeof PDFJSDev === 'undefined' || PDFJSDev.test('GENERIC')) {
@@ -1360,6 +1366,7 @@ let PDFViewerApplication = {
     eventBus.off('rotatecw', webViewerRotateCw);
     eventBus.off('rotateccw', webViewerRotateCcw);
     eventBus.off('documentproperties', webViewerDocumentProperties);
+    eventBus.on('keyboardshortcuts', webViewerKeyboardShortcuts);
     eventBus.off('find', webViewerFind);
     eventBus.off('findfromurlhash', webViewerFindFromUrlHash);
     if (typeof PDFJSDev === 'undefined' || PDFJSDev.test('GENERIC')) {
@@ -1450,6 +1457,10 @@ function webViewerInitialized() {
     let params = parseQueryString(queryString);
     file = 'file' in params ? params.file : appConfig.defaultUrl;
     validateFileURL(file);
+    if (!('supportskeyboardshortcuts' in params)) {
+    appConfig.secondaryToolbar.keyboardShortcutsButton.classList.add('hidden');
+      appConfig.sidebar.outerContainer.classList.add('touchMode');
+    }
   } else if (PDFJSDev.test('FIREFOX || MOZCENTRAL')) {
     file = window.location.href.split('#')[0];
   } else if (PDFJSDev.test('CHROME')) {
@@ -1906,7 +1917,9 @@ function webViewerRotateCcw() {
 function webViewerDocumentProperties() {
   PDFViewerApplication.pdfDocumentProperties.open();
 }
-
+function webViewerKeyboardShortcuts() {
+  PDFViewerApplication.pdfKeyboardShortcuts.open();
+}
 function webViewerFind(evt) {
   PDFViewerApplication.findController.executeCommand('find' + evt.type, {
     query: evt.query,
@@ -1918,6 +1931,9 @@ function webViewerFind(evt) {
 }
 
 function webViewerFindFromUrlHash(evt) {
+  PDFViewerApplication.findBar.findField.value = evt.query;
+  PDFViewerApplication.findBar.highlightAll.checked = true;
+  PDFViewerApplication.findBar.open();
   PDFViewerApplication.findController.executeCommand('find', {
     query: evt.query,
     phraseSearch: evt.phraseSearch,

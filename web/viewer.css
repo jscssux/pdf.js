@@ -1952,3 +1952,33 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
     display: none;
   }
 }
+
+/*shortcuts*/
+kbd{ margin: 0 3px; padding: 2px 5px; border: 1px solid #bbb; border-radius: 3px; border-width: 1px 1px 2px;}
+.shortcuts_key{text-align: right;padding: 0 5px 15px 0;  width: 130px;}
+.shortcuts_text{text-align: left;}
+
+/*support Touch UI*/
+.touchMode #sidebarContainer { top: 42px; }
+.touchMode #sidebarContent{top: 42px;}
+.touchMode #viewerContainer {top: 42px;}
+.touchMode #toolbarSidebar {height: 42px;}
+.touchMode #toolbarContainer, .touchMode .findbar{height: 42px;}
+.touchMode .secondaryToolbar{}
+.touchMode #toolbarViewer { height: 42px; }
+.touchMode .findbar, .touchMode .secondaryToolbar { top: 42px; }
+html[dir='ltr'] .touchMode .findbar { left: 75px; }
+.touchMode .findbar > div { height: 42px; }
+.touchMode #findbarOptionsContainer .toolbarLabel, .touchMode #findHighlightAll, .touchMode #findMatchCase{display: none;}
+.touchMode #findbarOptionsContainer #findResultsCount{display: inline-block;}
+.touchMode .toolbarButton{ width: 40px; height: 37px; line-height: 35px; }
+.touchMode .overlayButton{line-height: 35px; width: auto;height: auto;}
+.touchMode .toolbarButton, .touchMode .dropdownToolbarButton{ line-height: 35px; }
+.touchMode .toolbarButton::before, .touchMode .secondaryToolbarButton::before { left: 11px; }
+.touchMode .secondaryToolbarButton{ line-height: 38px;}
+.touchMode .toolbarField{padding: 9px 6px 10px;}
+.touchMode .toolbarField[type=checkbox] { margin: 16px 0; }
+.touchMode .toolbarLabel{line-height: 27px;}
+.touchMode .splitToolbarButtonSeparator{margin: 11px 0;}
+.touchMode .verticalToolbarSeparator{margin: 13px 4px;}
+.touchMode #PDFBug { top: 42px; }

@@ -170,6 +170,9 @@ See https://github.com/adobe-type-tools/cmap-resources
             <button id="documentProperties" class="secondaryToolbarButton documentProperties" title="Document Properties…" tabindex="62" data-l10n-id="document_properties">
               <span data-l10n-id="document_properties_label">Document Properties…</span>
             </button>
+            <button id="keyboardShortcuts" class="secondaryToolbarButton keyboardShortcuts" title="Keyboard Shortcuts…" tabindex="63" data-l10n-id="keyboard_shortcuts">
+              <span data-l10n-id="keyboard_shortcuts_label">Keyboard Shortcuts…</span>
+            </button>
           </div>
         </div>  <!-- secondaryToolbar -->
 
@@ -352,6 +355,58 @@ See https://github.com/adobe-type-tools/cmap-resources
             </div>
             <div class="buttonRow">
               <button id="documentPropertiesClose" class="overlayButton"><span data-l10n-id="document_properties_close">Close</span></button>
+            </div>
+          </div>
+        </div>
+        <div id="keyboardShortcutsOverlay" class="container hidden">
+          <div class="dialog">
+            <div class="row">
+              <span class="shortcuts_key"><kbd>&rarr;</kbd></span>
+              <span class="shortcuts_text" data-l10n-id="">Next Page</span>
+            </div>
+            <div class="row">
+              <span class="shortcuts_key"><kbd>&larr;</kbd></span>
+              <span class="shortcuts_text" data-l10n-id="">Previous Page</span>
+            </div>
+            <div class="row">
+              <span class="shortcuts_key"><kbd>&uarr;</kbd></span>
+              <span class="shortcuts_text" data-l10n-id="">Scroll Up</span>
+            </div>
+            <div class="row">
+              <span class="shortcuts_key"><kbd>&darr;</kbd></span>
+              <span class="shortcuts_text" data-l10n-id="">Scroll Down</span>
+            </div>
+            <div class="separator"></div>
+            <div class="row">
+              <span class="shortcuts_key"><kbd>CTRL</kbd>+<kbd>+</kbd></span>
+              <span class="shortcuts_text" data-l10n-id="">Zoom In</span>
+            </div>
+            <div class="row">
+              <span class="shortcuts_key"><kbd>CTRL</kbd>+<kbd>-</kbd></span>
+              <span class="shortcuts_text" data-l10n-id="">Zoom Out</span>
+            </div>
+            <div class="row">
+              <span class="shortcuts_key"><kbd>CTRL</kbd>+<kbd>0</kbd></span>
+              <span class="shortcuts_text" data-l10n-id="">Restore Normal Zoom</span>
+            </div>
+            <div class="row">
+              <span class="shortcuts_key"><kbd>r</kbd></span>
+              <span class="shortcuts_text" data-l10n-id="">Rotate The Document Clockwise</span>
+            </div>
+            <div class="row">
+              <span class="shortcuts_key"><kbd>SHIFT</kbd>+<kbd>r</kbd></span>
+              <span class="shortcuts_text" data-l10n-id="">Rotate Counterclockwise</span>
+            </div>
+            <div class="row">
+              <span class="shortcuts_key"><kbd>h</kbd></span>
+              <span class="shortcuts_text" data-l10n-id="">Toggle Hand Tool</span>
+            </div>
+            <div class="row">
+              <span class="shortcuts_key"><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>g</kbd></span>
+              <span class="shortcuts_text" data-l10n-id="">Move Focus To the 'Go To Page' Box</span>
+            </div>
+            <div class="buttonRow">
+              <button id="keyboardShortcutsClose" class="overlayButton"><span data-l10n-id="keyboard_shortcuts_close">Close</span></button>
             </div>
           </div>
         </div>

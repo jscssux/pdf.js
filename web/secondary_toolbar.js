@@ -46,6 +46,8 @@ import { SCROLLBAR_PADDING } from './ui_utils';
  *   hand tool.
  * @property {HTMLButtonElement} documentPropertiesButton - Button for opening
  *   the document properties dialog.
+ * @property {HTMLButtonElement} keyboardShortcutsButton - Button for opening
+ *   the Keyboard Shortcuts dialog.
  */
 
 class SecondaryToolbar {
@@ -78,6 +80,8 @@ class SecondaryToolbar {
         eventDetails: { tool: CursorTool.HAND, }, close: true, },
       { element: options.documentPropertiesButton,
         eventName: 'documentproperties', close: true, },
+      { element: options.keyboardShortcutsButton,
+        eventName: 'keyboardshortcuts', close: true, },
     ];
     this.items = {
       firstPage: options.firstPageButton,
